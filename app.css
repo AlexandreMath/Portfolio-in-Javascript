@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    color: #5a5a5a;
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    grid-auto-flow: row dense;
+    counter-reset: portfolio;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 0;
+    padding: 0 20px;
+}
+.project{
+    counter-increment: portfolio;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.project-image{
+    width: 100%;
+    height: auto;
+}
+h2{
+    color: #000000;
+    padding: 0;
+    margin: 0 0 5px;
+}
+.project-name::after{
+    content: counter(portfolio);
+}
+
+.project-body{
+    overflow: hidden;
+}
+
+.project .project-body{
+    display: none;
+}
+/*Style for the flexbox*/
+.portfolio-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (min-width : 640px){
+    .portfolio{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .project-body{
+        grid-column: span 4;
+    }
+    .portfolio-flex{
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .portfolio-flex .project{
+        width: 25%;
+        padding: 10px;
+    }
+    .portfolio-flex .project-body{
+        padding: 0 10px;
+    }
+ 
+}
